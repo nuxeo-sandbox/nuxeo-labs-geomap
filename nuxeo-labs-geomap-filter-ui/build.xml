@@ -76,6 +76,7 @@
 
     <target name="cleanup">
       <exec executable="${cmd.del}" failonerror="true">
+        <!-- TODO: this won't actually work on Windows -->
         <arg value="-rf" />
         <arg value="target/classes/web/nuxeo.war/nuxeo-labs-geomap-filter-ui/bower_components" />
       </exec>

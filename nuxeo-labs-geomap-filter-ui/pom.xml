@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>nuxeo-dam-geomap-filter-ui</artifactId>
+  <artifactId>nuxeo-labs-geomap-filter-ui</artifactId>
   <name>Nuxeo Labs geographic filter widget</name>
   <description/>
 

@@ -10,7 +10,7 @@
 
   <artifactId>nuxeo-labs-geomap-package</artifactId>
   <packaging>zip</packaging>
-  <name>Nuxeo labs geographic filter</name>
+  <name>Nuxeo labs geographic map package</name>
 
   <dependencies>
     <!-- Base distribution(s) for the MP -->

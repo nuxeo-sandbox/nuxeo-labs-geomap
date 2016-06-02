@@ -1,0 +1,10 @@
+{
+  "generator-nuxeo": {
+    "promptValues": {
+      "parent_package": "org.nuxeo.labs.geomap",
+      "parent_artifact": "nuxeo-labs-geomap-parent",
+      "package": "org.nuxeo.labs.geomap"
+    },
+    "multi": true
+  }
+}

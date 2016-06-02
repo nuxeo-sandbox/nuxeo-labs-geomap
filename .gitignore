@@ -24,5 +24,8 @@ bin
 .Trashes
 
 bower_components
+node_modules
 *.iml
 .idea
+
+index_local.html

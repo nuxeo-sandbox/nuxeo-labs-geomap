@@ -1,0 +1,33 @@
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:c="http://java.sun.com/jstl/core" xmlns:nxd="http://nuxeo.org/nxweb/document" xmlns:nxl="http://nuxeo.org/nxforms/layout" xmlns:nxu="http://nuxeo.org/nxweb/util" xmlns:nxr="http://nuxeo.org/nxweb/resources">
+
+  <h:outputScript src="/bower_components/webcomponentsjs/webcomponents-lite.js" target="" />
+
+  <nxr:import src="/nuxeo-labs-geomap-filter-ui/elements/elements.vulcanized.html" target="" />
+
+  <template is="dom-bind">
+
+    <div>Selected State: [[selectedState]]</div>
+
+    <nuxeo-labs-map-chart title="Incidents per State"
+        region="US"
+        resolution="provinces"
+        selected-value="{{selectedState}}">
+    </nuxeo-labs-map-chart>
+
+    <script>
+      var mapChart = document.querySelector('nuxeo-labs-map-chart');
+      mapChart.data = [
+        ["State", "Count"],
+        ["NY", 95],
+        ["CA", 72],
+        ["FL", 62],
+        ["GA", 43],
+        ["WA", 25],
+        ["MA", 39],
+        ["NV", 10]
+      ];
+    </script>
+
+  </template>
+
+</f:subview>

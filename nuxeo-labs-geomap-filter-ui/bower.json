@@ -1,0 +1,23 @@
+{
+  "name": "nuxeo-labs-geomap-filter-ui",
+  "version": "1.0.0",
+  "authors": [
+    "Josh Fletcher <jfletcher@nuxeo.com>"
+  ],
+  "description": "Nuxeo Labs geographic filter widget.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "nuxeo"
+  ],
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "homepage": "https://github.com/nuxeo-sandbox/nuxeo-labs-geomap",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.5.0",
+    "nuxeo-labs-elements": "nuxeo-sandbox/nuxeo-labs-elements#^3.2.0"
+  }
+}

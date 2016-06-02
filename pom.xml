@@ -17,7 +17,7 @@
 
   <modules>
     <module>nuxeo-labs-geomap-core</module>
-    <module>nuxeo-labs-geomap-ui</module>
+    <module>nuxeo-labs-geomap-filter-ui</module>
     <module>nuxeo-labs-geomap-marketplace</module>
   </modules>
 

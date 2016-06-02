@@ -1,0 +1,28 @@
+*.class
+.idea
+*.iml
+
+# Package Files #
+*.jar
+*.ear
+.project
+.settings
+.classpath
+target
+bin
+
+# Logs and databases #
+######################
+*.log
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+bower_components
+*.iml
+.idea

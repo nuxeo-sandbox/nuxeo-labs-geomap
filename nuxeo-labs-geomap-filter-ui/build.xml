@@ -32,6 +32,9 @@
     <condition property="cmd.mvn" value="mvn.cmd" else="mvn">
       <os family="windows" />
     </condition>
+    <condition property="cmd.del" value="del.cmd" else="rm">
+      <os family="windows" />
+    </condition>
 
     <target name="clean-cache" description="Clean npm and bower cache" if="cleanCache">
       <delete dir="node_modules" failonerror="true" />
@@ -55,7 +58,7 @@
       </exec>
     </target>
 
-    <target name="build" depends="init,build-with-tests,build-skip-tests" />
+    <target name="build" depends="init,build-with-tests,build-skip-tests,cleanup" />
 
     <target name="build-with-tests" unless="skipTests">
       <echo message="build and test" />
@@ -68,6 +71,13 @@
     <target name="build-skip-tests" if="skipTests">
       <exec executable="${cmd.gulp}" failonerror="true">
         <arg value="default" />
+      </exec>
+    </target>
+
+    <target name="cleanup">
+      <exec executable="${cmd.del}" failonerror="true">
+        <arg value="-rf" />
+        <arg value="target/classes/web/nuxeo.war/nuxeo-labs-geomap-filter-ui/bower_components" />
       </exec>
     </target>
 

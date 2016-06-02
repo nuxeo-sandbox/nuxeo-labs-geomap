@@ -1,0 +1,11 @@
+<component name="org.nuxeo.sample.travelExpenses.authentication.contrib">
+  <extension target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService" point="startURL">
+
+    <startURLPattern>
+      <patterns>
+        <pattern>nuxeo-labs-geomap-filter-ui/</pattern>
+      </patterns>
+    </startURLPattern>
+
+  </extension>
+</component>

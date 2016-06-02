@@ -4,3 +4,4 @@ Bundle-Name: Nuxeo Labs geographic filter widget
 Bundle-SymbolicName: nuxeo-labs-geomap-filter-ui;singleton:=true
 Bundle-Vendor: Nuxeo
 Bundle-Version: 1.0.0
+	Nuxeo-Component: OSGI-INF/authentication-contrib.xml

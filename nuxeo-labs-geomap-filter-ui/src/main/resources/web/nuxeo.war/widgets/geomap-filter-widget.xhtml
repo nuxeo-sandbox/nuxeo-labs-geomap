@@ -7,6 +7,14 @@
   <template is="dom-bind">
 
     <div>Selected State: [[selectedState]]</div>
+    <div id="selected_state_input">
+        <h:inputText value="[[selectedState]]">
+        </h:inputText>
+    </div>
+    <div id="selected_state_input">
+        <h:inputText value="#{fieldOrValue}">
+        </h:inputText>
+    </div>
 
     <nuxeo-labs-map-chart title="Incidents per State"
         region="US"

@@ -1,5 +1,5 @@
 <!-- See documentation at http://doc.nuxeo.com/x/HgIz -->
-<package type="addon" name="nuxeo-labs-geographic-filter" version="@VERSION@">
+<package type="addon" name="nuxeo-labs-geomap-features" version="@VERSION@">
   <title>Nuxeo labs geographic filter</title>
   <description>
     <p>Put here an HTML description of your Nuxeo Package.</p>

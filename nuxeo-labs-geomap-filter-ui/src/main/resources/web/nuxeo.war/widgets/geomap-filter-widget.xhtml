@@ -1,19 +1,28 @@
-<f:subview xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:c="http://java.sun.com/jstl/core" xmlns:nxd="http://nuxeo.org/nxweb/document" xmlns:nxl="http://nuxeo.org/nxforms/layout" xmlns:nxu="http://nuxeo.org/nxweb/util" xmlns:nxr="http://nuxeo.org/nxweb/resources">
+<f:subview xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jstl/core"
+    xmlns:nxd="http://nuxeo.org/nxweb/document"
+    xmlns:nxl="http://nuxeo.org/nxforms/layout"
+    xmlns:nxu="http://nuxeo.org/nxweb/util"
+    xmlns:nxr="http://nuxeo.org/nxweb/resources">
 
-  <h:outputScript src="/bower_components/webcomponentsjs/webcomponents-lite.js" target="" />
+  <h:outputScript src="/bower_components/webcomponentsjs/webcomponents-lite.js"
+      target="" />
 
-  <nxr:import src="/nuxeo-labs-geomap-filter-ui/elements/elements.vulcanized.html" target="" />
+  <nxr:import src="/nuxeo-labs-geomap-filter-ui/elements/elements.vulcanized.html"
+      target="" />
 
   <template is="dom-bind">
 
     <div>Selected State: [[selectedState]]</div>
     <div id="selected_state_input">
-        <h:inputText value="[[selectedState]]">
-        </h:inputText>
+      <h:inputText value="[[selectedState]]">
+      </h:inputText>
     </div>
     <div id="selected_state_input">
-        <h:inputText value="#{fieldOrValue}">
-        </h:inputText>
+      <h:inputText value="#{fieldOrValue}">
+      </h:inputText>
     </div>
 
     <nuxeo-labs-map-chart title="Incidents per State"

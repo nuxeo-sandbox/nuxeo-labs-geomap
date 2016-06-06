@@ -13,23 +13,35 @@
   <nxr:import src="/nuxeo-labs-geomap-filter-ui/elements/elements.vulcanized.html"
       target="" />
 
-  <template is="dom-bind">
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 
-    <div>Selected State: [[selectedState]]</div>
-    <div id="selected_state_input">
-      <h:inputText value="[[selectedState]]">
-      </h:inputText>
-    </div>
-    <div id="selected_state_input">
-      <h:inputText value="#{fieldOrValue}">
-      </h:inputText>
-    </div>
+  <ui:remove>
+    <!--
+    * The input field is hidden because the map is used to choose the value.
+    * I placed it outside the <template> element to make it easier to access (if
+    * it's inside the template then it becomes part of shadow DOM).
+    -->
+  </ui:remove>
+
+  <div class="hidden">
+    <h:inputText class="selected_state_input"
+        value="#{fieldOrValue}">
+    </h:inputText>
+  </div>
+
+  <template is="dom-bind">
 
     <nuxeo-labs-map-chart title="Incidents per State"
         region="US"
         resolution="provinces"
-        selected-value="{{selectedState}}">
+        selected-value="{{selectedState}}"
+        on-click="handleClick">
     </nuxeo-labs-map-chart>
+    <div>Selected: <span id="selected-state-span">[[selectedState]]</span></div>
 
     <script>
       var mapChart = document.querySelector('nuxeo-labs-map-chart');
@@ -46,5 +58,26 @@
     </script>
 
   </template>
+
+  <script>
+    /**
+     * The hidden &lt;input&gt; element is what performs the actual filtering.
+     */
+    var input = document.querySelector(".selected_state_input");
+
+    var t = document.querySelector("template");
+
+    /**
+     * Get the previously selected value so that when the content is refreshed
+     * the value is not lost.
+     */
+    t.selectedState = input.value;
+
+    t.handleClick = function(e) {
+      if (t.selectedState) {
+        input.value = (t.selectedState);
+      };
+    };
+  </script>
 
 </f:subview>

@@ -82,17 +82,11 @@
     };
 
     template._rowsForMap = function(data, aggregateName) {
-      if (data && data.aggregations && data.aggregations[aggregateName] && data.aggregations[aggregateName].buckets ) {
+      if (data && data.aggregations && data.aggregations[aggregateName] && data.aggregations[aggregateName].buckets) {
         var oldData = data.aggregations[aggregateName].buckets;
         var newData = oldData.map(function(e) {
           var res = [e.key];
-          if (Array.isArray(e.docCount)) {
-            e.docCount.forEach(function(v) {
-              res.push(v.value);
-            });
-          } else {
-            res.push(e.docCount);
-          }
+          res.push(e.docCount);
           return res;
         });
         newData.unshift(["State", "Count"]);

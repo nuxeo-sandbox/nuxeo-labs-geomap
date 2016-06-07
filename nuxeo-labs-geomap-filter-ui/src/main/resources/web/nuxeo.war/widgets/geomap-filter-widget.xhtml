@@ -53,11 +53,11 @@
         region="#{widget.properties['region']}"
         resolution="#{widget.properties['resolution']}"
         selected-value="{{selectedValue}}"
-        data="[[_rowsForMap(data.case_State_1_agg.buckets)]]"
+        data="[[_rowsForMap(data,'#{widget.properties['aggregateName']}')]]"
         on-click="_handleClick">
     </nuxeo-labs-map-chart>
 
-    <div>#{layout.properties} Selected: <span id="selected-state-span">[[selectedValue]]</span></div>
+    <div>Selected: <span id="selected-state-span">[[selectedValue]]</span></div>
 
   </template>
 
@@ -81,16 +81,17 @@
       };
     };
 
-    template._rowsForMap = function(data) {
-      if (data) {
-        var newData = data.map(function(e) {
+    template._rowsForMap = function(data, aggregateName) {
+      if (data && data.aggregations && data.aggregations[aggregateName] && data.aggregations[aggregateName].buckets ) {
+        var oldData = data.aggregations[aggregateName].buckets;
+        var newData = oldData.map(function(e) {
           var res = [e.key];
-          if (Array.isArray(e.value)) {
-            e.value.forEach(function(v) {
+          if (Array.isArray(e.docCount)) {
+            e.docCount.forEach(function(v) {
               res.push(v.value);
             });
           } else {
-            res.push(e.value);
+            res.push(e.docCount);
           }
           return res;
         });

@@ -46,12 +46,12 @@
     <nuxeo-labs-map-chart title="Incidents per State"
         region="#{widget.properties['region']}"
         resolution="#{widget.properties['resolution']}"
-        selected-value="{{selectedState}}"
+        selected-value="{{selectedValue}}"
         data="[[_rowsForMap(data)]]"
         on-click="_handleClick">
     </nuxeo-labs-map-chart>
 
-    <div>Selected: <span id="selected-state-span">[[selectedState]]</span></div>
+    <div>Selected: <span id="selected-state-span">[[selectedValue]]</span></div>
 
   </template>
 
@@ -67,11 +67,11 @@
      * Get the previously selected value so that when the content is refreshed
      * the value is not lost.
      */
-    template.selectedState = input.value;
+    template.selectedValue = input.value;
 
     template._handleClick = function(e) {
-      if (template.selectedState) {
-        input.value = (template.selectedState);
+      if (template.selectedValue) {
+        input.value = (template.selectedValue);
       };
     };
 

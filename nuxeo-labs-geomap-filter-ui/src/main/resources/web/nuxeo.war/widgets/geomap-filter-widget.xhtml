@@ -35,28 +35,23 @@
 
   <template is="dom-bind">
 
+    <nuxeo-connection url="/nuxeo"></nuxeo-connection>
+
+    <nuxeo-repository-data ecm-primary-type="Case"
+        where="[[_computeFilter()]]"
+        grouped-by="case:State"
+        data="{{data}}">
+    </nuxeo-repository-data>
+
     <nuxeo-labs-map-chart title="Incidents per State"
         region="#{widget.properties['region']}"
         resolution="#{widget.properties['resolution']}"
         selected-value="{{selectedState}}"
-        on-click="handleClick">
+        data="[[_rowsForMap(data)]]"
+        on-click="_handleClick">
     </nuxeo-labs-map-chart>
 
     <div>Selected: <span id="selected-state-span">[[selectedState]]</span></div>
-
-    <script>
-      var mapChart = document.querySelector('nuxeo-labs-map-chart');
-      mapChart.data = [
-        ["State", "Count"],
-        ["NY", 95],
-        ["CA", 72],
-        ["FL", 62],
-        ["GA", 43],
-        ["WA", 25],
-        ["MA", 39],
-        ["NV", 10]
-      ];
-    </script>
 
   </template>
 
@@ -66,18 +61,47 @@
      */
     var input = document.querySelector(".selected_state_input");
 
-    var t = document.querySelector("template");
+    var template = document.querySelector("template");
 
     /**
      * Get the previously selected value so that when the content is refreshed
      * the value is not lost.
      */
-    t.selectedState = input.value;
+    template.selectedState = input.value;
 
-    t.handleClick = function(e) {
-      if (t.selectedState) {
-        input.value = (t.selectedState);
+    template._handleClick = function(e) {
+      if (template.selectedState) {
+        input.value = (template.selectedState);
       };
+    };
+
+    template._rowsForMap = function(data) {
+      var newData = data.map(function(e) {
+        var res = [e.key];
+        if (Array.isArray(e.value)) {
+          e.value.forEach(function(v) {
+            res.push(v.value);
+          });
+        } else {
+          res.push(e.value);
+        }
+        return res;
+      });
+      newData.unshift(["State", "Count"]);
+      return newData;
+    };
+
+    /**
+     * `nuxeo-repository-data` expects an object for the `where` attribute.
+     */
+    template._computeFilter = function(state) {
+      var parentId = "#{currentDocument.id}";
+      return {
+        //'ecm:isCheckedInVersion': 0
+        'ecm:parentId': parentId,
+        "ecm:isProxy": false,
+        "ecm:isVersion": fals e
+      }
     };
   </script>
 

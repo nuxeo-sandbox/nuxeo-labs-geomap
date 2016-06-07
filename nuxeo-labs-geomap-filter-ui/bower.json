@@ -18,6 +18,8 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.5.0",
-    "nuxeo-labs-elements": "nuxeo-sandbox/nuxeo-labs-elements#^3.2.1"
+    "nuxeo-labs-elements": "nuxeo-sandbox/nuxeo-labs-elements#^3.2.1",
+    "nuxeo-elements": "nuxeo/nuxeo-elements#^0.3.1",
+    "nuxeo-dataviz-elements": "nuxeo/nuxeo-dataviz-elements#^0.3.1"
   }
 }

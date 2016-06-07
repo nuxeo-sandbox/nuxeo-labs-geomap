@@ -45,6 +45,7 @@
     </ui:remove>
     <nuxeo-page-provider auto="true"
         provider="#{contentView.pageProvider.name}"
+        params="[[_computeParams()]]"
         aggregations="[[data]]">
     </nuxeo-page-provider>
 
@@ -99,7 +100,7 @@
     /**
      * `nuxeo-repository-data` expects an object for the `where` attribute.
      */
-    template._computeFilter = function(state) {
+    template._computeFilter = function() {
       var parentId = "#{currentDocument.id}";
       return {
         //'ecm:isCheckedInVersion': 0
@@ -107,6 +108,16 @@
         "ecm:isProxy": false,
         "ecm:isVersion": false
       }
+    };
+
+    /**
+     * `nuxeo-page-provider` expects an object for the `params` attribute.
+     */
+    template._computeParams = function() {
+      var parentId = "#{currentDocument.id}";
+      return [
+        parentId
+      ]
     };
   </script>
 

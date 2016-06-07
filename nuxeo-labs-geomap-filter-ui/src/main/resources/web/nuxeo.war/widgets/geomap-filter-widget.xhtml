@@ -36,8 +36,8 @@
   <template is="dom-bind">
 
     <nuxeo-labs-map-chart title="Incidents per State"
-        region="US"
-        resolution="provinces"
+        region="#{widget.properties['region']}"
+        resolution="#{widget.properties['resolution']}"
         selected-value="{{selectedState}}"
         on-click="handleClick">
     </nuxeo-labs-map-chart>

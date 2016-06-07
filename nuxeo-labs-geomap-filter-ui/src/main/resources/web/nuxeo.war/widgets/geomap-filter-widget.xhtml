@@ -46,18 +46,18 @@
     <nuxeo-page-provider auto="true"
         provider="#{contentView.pageProvider.name}"
         params="[[_computeParams()]]"
-        aggregations="[[data]]">
+        aggregations="{{data}}">
     </nuxeo-page-provider>
 
     <nuxeo-labs-map-chart title="#{widget.properties['title']}"
         region="#{widget.properties['region']}"
         resolution="#{widget.properties['resolution']}"
         selected-value="{{selectedValue}}"
-        data="[[_rowsForMap(data)]]"
+        data="[[_rowsForMap(data.case_State_1_agg.buckets)]]"
         on-click="_handleClick">
     </nuxeo-labs-map-chart>
 
-    <div>Selected: <span id="selected-state-span">[[selectedValue]]</span></div>
+    <div>#{layout.properties} Selected: <span id="selected-state-span">[[selectedValue]]</span></div>
 
   </template>
 
@@ -82,19 +82,21 @@
     };
 
     template._rowsForMap = function(data) {
-      var newData = data.map(function(e) {
-        var res = [e.key];
-        if (Array.isArray(e.value)) {
-          e.value.forEach(function(v) {
-            res.push(v.value);
-          });
-        } else {
-          res.push(e.value);
-        }
-        return res;
-      });
-      newData.unshift(["State", "Count"]);
-      return newData;
+      if (data) {
+        var newData = data.map(function(e) {
+          var res = [e.key];
+          if (Array.isArray(e.value)) {
+            e.value.forEach(function(v) {
+              res.push(v.value);
+            });
+          } else {
+            res.push(e.value);
+          }
+          return res;
+        });
+        newData.unshift(["State", "Count"]);
+        return newData;
+      }
     };
 
     /**

@@ -37,7 +37,14 @@
 
     <nuxeo-connection url="/nuxeo"></nuxeo-connection>
 
-    <nuxeo-page-provider provider="#{contentView.pageProvider.name}"
+    <ui:remove>
+      <!--
+      * Note: auto="true" is bad Polymer form but is required in order for Nuxeo
+      * to validate the syntax.
+      -->
+    </ui:remove>
+    <nuxeo-page-provider auto="true"
+        provider="#{contentView.pageProvider.name}"
         aggregations="[[data]]">
     </nuxeo-page-provider>
 

@@ -37,11 +37,9 @@
 
     <nuxeo-connection url="/nuxeo"></nuxeo-connection>
 
-    <nuxeo-repository-data ecm-primary-type="Case"
-        where="[[_computeFilter()]]"
-        grouped-by="case:State"
-        data="{{data}}">
-    </nuxeo-repository-data>
+    <nuxeo-page-provider provider="#{contentView.pageProvider.name}"
+        aggregations="[[data]]">
+    </nuxeo-page-provider>
 
     <nuxeo-labs-map-chart title="#{widget.properties['title']}"
         region="#{widget.properties['region']}"
@@ -100,7 +98,7 @@
         //'ecm:isCheckedInVersion': 0
         'ecm:parentId': parentId,
         "ecm:isProxy": false,
-        "ecm:isVersion": fals e
+        "ecm:isVersion": false
       }
     };
   </script>

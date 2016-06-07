@@ -82,8 +82,8 @@
     };
 
     template._rowsForMap = function(data, aggregateName) {
-      if (data && data.aggregations && data.aggregations[aggregateName] && data.aggregations[aggregateName].buckets) {
-        var oldData = data.aggregations[aggregateName].buckets;
+      if (data &amp;&amp; data[aggregateName] &amp;&amp; data[aggregateName].buckets) {
+        var oldData = data[aggregateName].buckets;
         var newData = oldData.map(function(e) {
           var res = [e.key];
           res.push(e.docCount);

@@ -26,13 +26,20 @@
     * it's inside the template then it becomes part of shadow DOM).
     -->
   </ui:remove>
-  <div class="">
+  <div class="hidden">
     <h:inputText class="selected_item_input"
         value="#{field}">
     </h:inputText>
   </div>
 
   <template is="dom-bind">
+
+    <style is="custom-style">
+      nuxeo-labs-map-chart::content google-chart {
+        width: #{widget.properties['chartWidth']};
+        height: #{widget.properties['chartHeight']};
+      }
+    </style>
 
     <nuxeo-connection url="/nuxeo"></nuxeo-connection>
 

@@ -41,7 +41,7 @@ Example:
 
   <template>
 
-    <nuxeo-page-provider provider="[[provider]]"
+    <nuxeo-page-provider id="content-view-provider" provider="[[provider]]"
         aggregations="{{_aggregations}}">
     </nuxeo-page-provider>
 
@@ -106,8 +106,8 @@ Example:
 
       _execute: function(parentDocId) {
         // `nuxeo-page-provider` expects an object for the `params` attribute.
-        this.$.nuxeoPageProvider.params = [parentDocId];
-        this.$.nuxeoPageProvider.fetch();
+        this.$.contentViewProvider.params = [parentDocId];
+        this.$.contentViewProvider.fetch();
       }
 
     });

@@ -26,10 +26,9 @@
     * it's inside the template then it becomes part of shadow DOM).
     -->
   </ui:remove>
-
-  <div class="hidden">
-    <h:inputText class="selected_state_input"
-        value="#{fieldOrValue}">
+  <div class="">
+    <h:inputText class="selected_item_input"
+        value="#{field}">
     </h:inputText>
   </div>
 
@@ -43,78 +42,32 @@
       * to validate the syntax.
       -->
     </ui:remove>
-    <nuxeo-page-provider auto="true"
-        provider="#{contentView.pageProvider.name}"
-        params="[[_computeParams()]]"
-        aggregations="{{data}}">
-    </nuxeo-page-provider>
+    <geomap-content-view-filter-binding provider="#{contentView.pageProvider.name}"
+        parent-doc-id="#{currentDocument.id}"
+        aggregate-name="#{widget.properties['aggregateName']}"
+        data="{{dataForMap}}">
+    </geomap-content-view-filter-binding>
 
     <nuxeo-labs-map-chart title="#{widget.properties['title']}"
         region="#{widget.properties['region']}"
         resolution="#{widget.properties['resolution']}"
         selected-value="{{selectedValue}}"
-        data="[[_rowsForMap(data,'#{widget.properties['aggregateName']}')]]"
+        data="[[dataForMap]]"
         on-click="_handleClick">
     </nuxeo-labs-map-chart>
 
-    <div>Selected: <span id="selected-state-span">[[selectedValue]]</span></div>
+    <div>Selected: <span id="selected-item-span">[[selectedValue]]</span></div>
 
   </template>
 
   <script>
-    /**
-     * The hidden &lt;input&gt; element is what performs the actual filtering.
-     */
-    var input = document.querySelector(".selected_state_input");
-
     var template = document.querySelector("template");
-
-    /**
-     * Get the previously selected value so that when the content is refreshed
-     * the value is not lost.
-     */
-    template.selectedValue = input.value;
 
     template._handleClick = function(e) {
       if (template.selectedValue) {
-        input.value = (template.selectedValue);
+        var input = document.querySelector(".selected_item_input");
+        input.value = template.selectedValue;
       };
-    };
-
-    template._rowsForMap = function(data, aggregateName) {
-      if (data &amp;&amp; data[aggregateName] &amp;&amp; data[aggregateName].buckets) {
-        var oldData = data[aggregateName].buckets;
-        var newData = oldData.map(function(e) {
-          var res = [e.key];
-          res.push(e.docCount);
-          return res;
-        });
-        newData.unshift(["State", "Count"]);
-        return newData;
-      }
-    };
-
-    /**
-     * `nuxeo-repository-data` expects an object for the `where` attribute.
-     */
-    template._computeFilter = function() {
-      var parentId = "#{currentDocument.id}";
-      return {
-        //'ecm:isCheckedInVersion': 0
-        'ecm:parentId': parentId,
-        "ecm:isProxy": false,
-        "ecm:isVersion": false
-      }
-    };
-
-    /**
-     * `nuxeo-page-provider` expects an object for the `params` attribute.
-     */
-    template._computeParams = function() {
-      var parentId = "#{currentDocument.id}";
-      return [
-        parentId
-      ]
     };
   </script>
 

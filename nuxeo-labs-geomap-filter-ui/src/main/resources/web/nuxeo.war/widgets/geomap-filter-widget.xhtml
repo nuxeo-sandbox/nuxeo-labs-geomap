@@ -34,13 +34,6 @@
 
   <template is="dom-bind">
 
-    <style is="custom-style">
-      nuxeo-labs-map-chart::content google-chart {
-        width: #{widget.properties['chartWidth']};
-        height: #{widget.properties['chartHeight']};
-      }
-    </style>
-
     <nuxeo-connection url="/nuxeo"></nuxeo-connection>
 
     <ui:remove>
@@ -58,12 +51,15 @@
     <nuxeo-labs-map-chart title="#{widget.properties['title']}"
         region="#{widget.properties['region']}"
         resolution="#{widget.properties['resolution']}"
+        width="#{widget.properties['chartWidth']}"
+        height="#{widget.properties['chartHeight']}"
         selected-value="{{selectedValue}}"
         data="[[dataForMap]]"
         on-click="_handleClick">
     </nuxeo-labs-map-chart>
 
-    <template is="dom-if" if="[[selectedValue]]">
+    <template is="dom-if"
+        if="[[selectedValue]]">
       <div>Selected: <span id="selected-item-span">[[selectedValue]]</span></div>
     </template>
 

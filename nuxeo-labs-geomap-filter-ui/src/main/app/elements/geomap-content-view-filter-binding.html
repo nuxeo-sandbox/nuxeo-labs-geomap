@@ -90,10 +90,10 @@ Example:
 
       _convertAggregationsToMapData: function(_aggregations) {
         if (_aggregations &&
-          _aggregations[aggregateName] &&
-          _aggregations[aggregateName].buckets &&
-          _aggregations[aggregateName].buckets.length > 0) {
-          var aggregationData = _aggregations[aggregateName].buckets;
+          _aggregations[this.aggregateName] &&
+          _aggregations[this.aggregateName].buckets &&
+          _aggregations[this.aggregateName].buckets.length > 0) {
+          var aggregationData = _aggregations[this.aggregateName].buckets;
           var mapData = aggregationData.map(function(e) {
             var res = [e.key];
             res.push(e.docCount);

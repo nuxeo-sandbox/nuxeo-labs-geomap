@@ -63,7 +63,9 @@
         on-click="_handleClick">
     </nuxeo-labs-map-chart>
 
-    <div>Selected: <span id="selected-item-span">[[selectedValue]]</span></div>
+    <template is="dom-if" if="[[selectedValue]]">
+      <div>Selected: <span id="selected-item-span">[[selectedValue]]</span></div>
+    </template>
 
   </template>
 

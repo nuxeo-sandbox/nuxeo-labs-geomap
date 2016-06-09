@@ -40,6 +40,8 @@ The widget can be configured entirely in Nuxeo Studio.  Given a Content View, fo
 
 ## Building
 
+Available via continuous integration:
+
 [![Build Status](https://qa.nuxeo.org/jenkins/buildStatus/icon?job=Sandbox/sandbox_nuxeo-cm-demo-utils-master)](https://qa.nuxeo.org/jenkins/view/sandbox/job/Sandbox/job/sandbox_nuxeo-cm-demo-utils-master/)
 
 After cloning, and assuming `maven` is correctly installed:

@@ -29,10 +29,6 @@
     <!-- Additional bundles to be deployed by the MP -->
     <dependency>
       <groupId>org.nuxeo.labs.geomap</groupId>
-      <artifactId>nuxeo-labs-geomap-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.nuxeo.labs.geomap</groupId>
       <artifactId>nuxeo-labs-geomap-filter-ui</artifactId>
     </dependency>
   </dependencies>

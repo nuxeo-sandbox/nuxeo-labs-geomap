@@ -21,7 +21,8 @@
 
   <ui:remove>
     <!--
-    * The input field is hidden because the map is used to choose the value.
+    * The input field is hidden because the map is used to choose the value. The
+    * value is then copied to the input field for filtering.
     * I placed it outside the <template> element to make it easier to access (if
     * it's inside the template then it becomes part of shadow DOM).
     -->
@@ -36,12 +37,6 @@
 
     <nuxeo-connection url="/nuxeo"></nuxeo-connection>
 
-    <ui:remove>
-      <!--
-      * Note: auto="true" is bad Polymer form but is required in order for Nuxeo
-      * to validate the syntax.
-      -->
-    </ui:remove>
     <geomap-content-view-filter-binding provider="#{contentView.pageProvider.name}"
         parent-doc-id="#{currentDocument.id}"
         aggregate-name="#{widget.properties['aggregateName']}"

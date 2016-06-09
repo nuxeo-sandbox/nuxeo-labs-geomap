@@ -22,7 +22,7 @@ Contributors:
 <link rel="import"
     href="../bower_components/nuxeo-elements/nuxeo-page-provider.html">
 <!--
-An element to bind a `nuxeo-labs-map-chart` to a Content View fitler widget.
+An element to bind a `nuxeo-labs-map-chart` to a Content View filter widget.
 
 Given a Content View, converts aggregation data to data for the chart.
 
@@ -34,14 +34,16 @@ Example:
                                         data="{{dataForMap}}">
     </geomap-content-view-filter-binding>
 
-@group Nuxeo Geomap Demo Elements
+@group Nuxeo Geomap Elements
 @element geomap-content-view-filter-binding
 -->
 <dom-module id="geomap-content-view-filter-binding">
 
   <template>
 
-    <nuxeo-page-provider id="contentViewProvider" provider="[[provider]]"
+    <!-- Get aggregation data. -->
+    <nuxeo-page-provider id="contentViewProvider"
+        provider="[[provider]]"
         aggregations="{{_aggregations}}">
     </nuxeo-page-provider>
 
@@ -86,8 +88,11 @@ Example:
         '_convertAggregationsToMapData(_aggregations)'
       ],
 
-
-
+      /**
+       * Convert Nuxeo formatted aggregation JSON to JSON appropriate for Google
+       * Chart.
+       * @private
+       */
       _convertAggregationsToMapData: function(_aggregations) {
         if (_aggregations &&
           _aggregations[this.aggregateName] &&
@@ -104,8 +109,13 @@ Example:
         }
       },
 
-      _execute: function(provider,parentDocId) {
-        // `nuxeo-page-provider` expects an object for the `params` attribute.
+      /**
+       * Manually execute the page provider query. I do this instead of using
+       * autoexecution because in auto mode it will execute when either the
+       * provider or params change and I need to modify both.
+       * @private
+       */
+      _execute: function(provider, parentDocId) {
         this.$.contentViewProvider.params = [parentDocId];
         this.$.contentViewProvider.fetch();
       }

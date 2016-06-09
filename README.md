@@ -10,10 +10,10 @@ The widget uses a [Polymer-based](https://www.polymer-project.org/1.0/) applicat
 
 The widget can be configured entirely in Nuxeo Studio.  Given a Content View, follow these instructions:
 
-1. Add and configure a "Terms" Aggregation Widget to the Content View
+1. Add and configure a [Terms Aggregate](https://doc.nuxeo.com/display/NXDOC/How+to+Configure+a+Search+Filter+With+Facets+and+Other+Aggregates#HowtoConfigureaSearchFilterWithFacetsandOtherAggregates-TermsAggregate) to the Content View Search Layout
   * Be sure to enable "Hide label"
   * Set the "Style" property to `display: none`
-1. Get the `id` of the `<aggregate>` contribution; the ids follow the format `schema_field_#_agg` but it's better to get the exact id:
+1. Get the `id` of the `<aggregate>` contribution; the ids follow the format `schema_field_#_agg` but it's better to get the exact id than to guess:
   * Download the Studio project
   * Extract the Studio JAR file
   * Open the `OSGI-INF/extensions.xml` file
@@ -27,6 +27,16 @@ The widget can be configured entirely in Nuxeo Studio.  Given a Content View, fo
   </aggregate>
   ```
 1. Add a "Generic Search" widget and configure as follows:
+  * Set the "Field" to the same value as the Terms Aggregate
+  * Set "Widget Type" to `template`
+  * Add the following custom properties:
+    * template = `/widgets/geomap-filter-widget.xhtml`
+    * region = as documented [here](https://developers.google.com/chart/interactive/docs/gallery/geochart#regions-mode-format)), e.g. `world` or `US`
+    * resolution = one of `countries`, `provinces`, or `metros`; note that `provinces` is the correct value for US States
+    * aggregateName = the `id` of the `<aggregate>` contribution located previously
+    * title = a title for the chart; note that this is only used when the mouse hovers over the chart; *optional*
+    * chartWidth = width in pixels; *optional*, default is 400
+    * chartHeight = height in pixels; *optional*, default is 300
 
 ## Building
 
@@ -45,7 +55,6 @@ The Nuxeo Package will be placed at is in `nuxeo-labs-geomap-marketplace/target/
 These solutions are provided for inspiration and we encourage customers to use them as code samples and learning resources.
 
 This is a moving project (no API maintenance, no deprecation process, etc.) If any of these solutions are found to be useful for the Nuxeo Platform in general, they will be integrated directly into platform, not maintained here.
-
 
 ## Licensing
 

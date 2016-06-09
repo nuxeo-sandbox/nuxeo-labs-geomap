@@ -30,13 +30,16 @@ The widget can be configured entirely in Nuxeo Studio.  Given a Content View, fo
   * Set the "Field" to the same value as the Terms Aggregate
   * Set "Widget Type" to `template`
   * Add the following custom properties:
-    * template = `/widgets/geomap-filter-widget.xhtml`
-    * region = as documented [here](https://developers.google.com/chart/interactive/docs/gallery/geochart#regions-mode-format)), e.g. `world` or `US`
-    * resolution = one of `countries`, `provinces`, or `metros`; note that `provinces` is the correct value for US States
-    * aggregateName = the `id` of the `<aggregate>` contribution located previously
-    * title = a title for the chart; note that this is only used when the mouse hovers over the chart; *optional*
-    * chartWidth = width in pixels; *optional*, default is 400
-    * chartHeight = height in pixels; *optional*, default is 300
+
+Property | value
+--- | ---
+template | `/widgets/geomap-filter-widget.xhtml`
+region | as documented [here](https://developers.google.com/chart/interactive/docs/gallery/geochart#regions-mode-format)), e.g. `world` or `US`
+resolution | one of `countries`, `provinces`, or `metros`; note that `provinces` is the correct value for US States
+aggregateName | the `id` of the `<aggregate>` contribution located previously
+title | a title for the chart; note that this is only used when the mouse hovers over the chart; *optional*
+chartWidth | width in pixels; *optional*, default is 400
+chartHeight | height in pixels; *optional*, default is 300
 
 ## Building
 

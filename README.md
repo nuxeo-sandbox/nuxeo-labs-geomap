@@ -31,7 +31,7 @@ The widget can be configured entirely in Nuxeo Studio.  Given a Content View, fo
   * Set "Widget Type" to `template`
   * Add the following custom properties:
 
-Property | value
+Property | Value
 --- | ---
 template | `/widgets/geomap-filter-widget.xhtml`
 region | as documented [here](https://developers.google.com/chart/interactive/docs/gallery/geochart#regions-mode-format)), e.g. `world` or `US`
@@ -42,10 +42,6 @@ chartWidth | width in pixels; *optional*, default is 400
 chartHeight | height in pixels; *optional*, default is 300
 
 ## Building
-
-Available via continuous integration:
-
-[![Build Status](https://qa.nuxeo.org/jenkins/buildStatus/icon?job=Sandbox/sandbox_nuxeo-cm-demo-utils-master)](https://qa.nuxeo.org/jenkins/view/sandbox/job/Sandbox/job/sandbox_nuxeo-cm-demo-utils-master/)
 
 After cloning, and assuming `maven` is correctly installed:
 

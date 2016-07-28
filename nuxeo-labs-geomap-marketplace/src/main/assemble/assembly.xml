@@ -65,6 +65,7 @@
           <artifact groupId="nuxeo-studio" />
           <!-- Filter out your artifacts using their groupId for instance -->
           <artifact groupId="org.nuxeo.labs.geomap*"/>
+          <artifact artifactId="mongo-java-driver*"/>
         </excludes>
       </artifact:set>
     </copy>

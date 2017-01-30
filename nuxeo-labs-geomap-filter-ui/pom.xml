@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.nuxeo.labs.geomap</groupId>
     <artifactId>nuxeo-labs-geomap-parent</artifactId>
-    <version>8.3-SNAPSHOT</version>
+    <version>8.10-SNAPSHOT</version>
   </parent>
 
   <artifactId>nuxeo-labs-geomap-filter-ui</artifactId>

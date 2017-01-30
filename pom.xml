@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.nuxeo.ecm.distribution</groupId>
     <artifactId>nuxeo-distribution</artifactId>
-    <version>8.3</version>
+    <version>8.10</version>
   </parent>
 
   <groupId>org.nuxeo.labs.geomap</groupId>
   <artifactId>nuxeo-labs-geomap-parent</artifactId>
-  <version>8.3-SNAPSHOT</version>
+  <version>8.10-SNAPSHOT</version>
   <name>Nuxeo labs geomap parent</name>
   <description>Parent project for nuxeo-labs-geomap.</description>
   <packaging>pom</packaging>
@@ -21,7 +21,7 @@
   </modules>
 
   <properties>
-    <nuxeo.labs.geomap.version>8.3-SNAPSHOT</nuxeo.labs.geomap.version>
+    <nuxeo.labs.geomap.version>8.10-SNAPSHOT</nuxeo.labs.geomap.version>
   </properties>
 
   <repositories>

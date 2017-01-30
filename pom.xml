@@ -20,6 +20,21 @@
     <module>nuxeo-labs-geomap-marketplace</module>
   </modules>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.nuxeo.labs.geomap</groupId>
+        <artifactId>nuxeo-labs-geomap-filter-ui</artifactId>
+        <version>${nuxeo.labs.geomap.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.nuxeo.labs.geomap</groupId>
+        <artifactId>nuxeo-labs-geomap-package</artifactId>
+        <version>${nuxeo.labs.geomap.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <properties>
     <nuxeo.labs.geomap.version>8.10-SNAPSHOT</nuxeo.labs.geomap.version>
   </properties>
@@ -72,20 +87,5 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.nuxeo.labs.geomap</groupId>
-        <artifactId>nuxeo-labs-geomap-filter-ui</artifactId>
-        <version>${nuxeo.labs.geomap.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.nuxeo.labs.geomap</groupId>
-        <artifactId>nuxeo-labs-geomap-package</artifactId>
-        <version>${nuxeo.labs.geomap.version}</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
 </project>
